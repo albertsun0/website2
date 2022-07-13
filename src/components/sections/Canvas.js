@@ -17,11 +17,11 @@ function Canvas() {
         const s3o2 = Math.sqrt(3)/2;
         var mousex = 0;
         var mousey = 0;
-        var triangleW = h/26;
+        var triangleW = 30;
         var triangleH = s3o2*triangleW;
         var triangles = [];
-        //const colors = ['#FE948D', '#CBE896', '#3B74E3'];
-        const colors = ['#4a6361', '#52634a', '#634e4a'];
+        const colors = ['#FE948D', '#CBE896', '#3B74E3'];
+        //const colors = ['#4a6361', '#52634a', '#634e4a'];
         var points = [];
         points.push({x:0, y:-triangleH/2});
         points.push({x:triangleW/2, y:triangleH/2});
@@ -30,25 +30,35 @@ function Canvas() {
         points.push({x:triangleW/2, y:triangleH/2});
         console.log(points);
     
-        const createTriangle = (x,y,dir, speed,color) => {
-            return {x:x, y:y, dir:dir, rotate:dir, speed:speed, color:colors[color]};
+        const createTriangle = (x, y, dir, speed, color, scale) => {
+            return {x:x, y:y, dir:dir, rotate:dir, speed:speed, color:colors[color], action:"none", scale: scale};
         }
-    
+        
+        const instantiate = () => {
+            let tx =  Math.floor(Math.random() * w);
+            let ty =  Math.floor(Math.random() * h);
+            let td = (Math.random() * 6.28) - 3.14;
+            let ts = 0.15;//0.1;
+            let tc = Math.floor(Math.random() * colors.length);
+            let temp = createTriangle(tx,ty,td,ts,tc, 0.03);
+            temp.action = "grow";
+            triangles.push(temp);
+        }
+
         const init = () => {
-            for(var i = 0; i< 15; i++){
-                let tx =  Math.floor(Math.random() * w);
-                let ty =  Math.floor(Math.random() * h);
-                let td = (Math.random() * 6.28) - 3.14;
-                let ts = 0.15;//0.1;
-                let tc = Math.floor(Math.random() * colors.length);
-                let temp = createTriangle(tx,ty,td,ts,tc);
-                triangles.push(temp);
+            for(var i = 0; i< w/150; i++){
+                instantiate();
             }
         }
         
         const move = () => {
             //console.log("move");
             for(var i = 0 ; i<triangles.length; i++){
+                if(triangles[i].scale < 0.03){
+                    triangles.splice(i,1);
+                    instantiate();
+                    continue;
+                }
                 if(triangles[i].x > w+50 || triangles[i].x < 0){
                     triangles[i].dir = Math.PI-triangles[i].dir;
                 }
@@ -60,7 +70,19 @@ function Canvas() {
                 triangles[i].rotate += 0.002;
                 if(triangles[i].rotate > 3.14){
                     triangles[i].rotate = -3.14;
-                } 
+                }
+
+                if(triangles[i].action == "shrink"){
+                    triangles[i].scale -= triangles[i].scale/10;
+                }
+
+                if(triangles[i].action == "grow"){
+                    triangles[i].scale += triangles[i].scale/5;
+                    if(triangles[i].scale >= 1){
+                        triangles[i].scale = 1;
+                        triangles[i].action = "none";
+                    }
+                }
             }
             draw();
         }
@@ -75,10 +97,6 @@ function Canvas() {
         const draw = () => {
             ctx.clearRect(0,0, w, h);
             ctx.beginPath();
-            ctx.rect(0, 0, w, h);
-            ctx.fillStyle = '#0c0c11';
-            ctx.fill();
-    
             for(var i = 0; i<triangles.length; i++){
                 let curr = triangles[i];
                 var currpoints = [];
@@ -87,13 +105,15 @@ function Canvas() {
                 var y = curr.y;
                 let angle = angleTo(x,y, mousex, mousey);
                 let dist = distTo(x,y, mousex, mousey);
-                y = y + Math.cos(angle) * dist/30;
-                x = x + Math.sin(angle) * dist/30;
+                y = y + Math.cos(angle) * dist/50;
+                x = x + Math.sin(angle) * dist/50;
                 ctx.beginPath();
                 for(var j = 0; j < points.length; j++){
                     let tempx = points[j].x * Math.cos(curr.rotate) - points[j].y * Math.sin(curr.rotate);
                     let tempy = points[j].x * Math.sin(curr.rotate) + points[j].y * Math.cos(curr.rotate);
-                   // console.log(curr.angle);
+                    tempx *= triangles[i].scale;
+                    tempy *= triangles[i].scale;
+                    // console.log(curr.angle);
                     // tempx = points[j].x;
                     // tempy = points[j].y;
                     tempx+=x;
@@ -110,25 +130,6 @@ function Canvas() {
                 ctx.lineJoin = "round";
                 ctx.strokeStyle = curr.color;
                 ctx.stroke();
-                
-                //console.log(curr);
-    
-                //first rotate using rotation matrix
-                // x = xcos0 - ysin0
-                // y = xsin0 + ycos0
-                //then transform all points using x and y
-    
-                
-                //ctx.rotate(0.30);
-                
-    
-                // ctx.moveTo(x,y);
-                // ctx.lineTo(x + triangleW/2, y +triangleH);
-                // ctx.lineTo(x -triangleW/2, y +triangleH);
-                // ctx.lineTo(x,y);
-                // ctx.lineTo(x + triangleW/2, y +triangleH);
-                
-                
             }
            
         }
@@ -137,26 +138,41 @@ function Canvas() {
         function windowResize() {
             canvas.width  = window.innerWidth;
             canvas.height = window.innerHeight;
-            triangleW = h/20;
+            w = canvas.width;
+            h = canvas.height;
+            triangleW = h/30;
             draw();
         };
-    
-        canvas.addEventListener('mousemove', e => {
-            mousex = e.offsetX;
-            mousey = e.offsetY;
+        window.addEventListener('resize', windowResize);
+        window.addEventListener('click', e => {
+            console.log("click");
+            for(let i = 0; i<triangles.length; i++){
+                if(mousex > triangles[i].x- triangleW && mousex < triangles[i].x + triangleW && 
+                    mousey - window.scrollY > triangles[i].y - triangleH && mousey - window.scrollY < triangles[i].y + triangleH){
+                        console.log("hit");
+                        triangles[i].action = "shrink";
+                    }
+            }
+        })
+        window.addEventListener('mousemove', e => {
+            mousex = e.pageX;
+            mousey = e.pageY;
             draw();
         });
-    
+        
         const int = setInterval(move, 1000/60);
     }, [])
 
-    const [coord, setCoord] = useState({ x: 0, y: 0 });
-    const handleMouseMove = (e) => {
-        setCoord({ x: e.screenX, y: e.screenY });
-    };
+    // const [coord, setCoord] = useState({ x: 0, y: 0 });
+    // const handleMouseMove = (e) => {
+    //     setCoord({ x: e.screenX, y: e.screenY });
+    // };
 
     return (
-        <canvas id="bg" className='m-0 overflow-hidden w-full h-full -z-10 absolute'></canvas>
+        <canvas id="bg" className='m-0 overflow-hidden w-full h-full -z-10 fixed 
+        dark:bg-zinc-900 bg-neutral-50 transition-all duration-700'>
+
+        </canvas>
     )
 }
 
