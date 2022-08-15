@@ -14,9 +14,6 @@ function Nav() {
             >
                 <div className='md:flex-grow'>  
                 </div>
-                <div className='hover:text-orange-400 cursor-pointer transition-all duration-500'>
-                    Home
-                </div>
                 <a href='#showcase'>
                     <div className='hover:text-orange-400 cursor-pointer transition-all duration-500'>
                         Projects

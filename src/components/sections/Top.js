@@ -33,7 +33,7 @@ function Top() {
             <div className='relative inline-block text-xl font-bold border-orange-400 border-2 p-2 text-center px-4
                         before:block before:absolute before:bg-orange-400 before:w-0 before:h-full before:top-0 before:left-0 
                         hover:before:w-full before:transition-all before:duration-1000 before:-z-10 cursor-pointer rounded'>
-              Contact Me
+              <a href='mailto:albertsun0@utexas.edu'>Contact Me</a>
             </div>
           </div>
           <a href='#showcase'>
