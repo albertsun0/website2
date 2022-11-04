@@ -9,7 +9,7 @@ const projects = [
   {
     name: "Slides Background",
     image: slidebg,
-    description: "Generate beautiful material backgrounds for Google Slides presentations. Over 20 nature inspired themes and 3 types of backgrounds to choose from. Over 1 million users and a 4.6 star rating!",
+    description: "Generate beautiful material backgrounds for Google Slides presentations. Over 1 million users!",
     links : ['https://workspace.google.com/marketplace/app/slides_background/732310380877', 'https://slides.doshy.org/', 'https://github.com/Doshy-Org/Slides-Background'],
     linkDescriptions : ['Available on the G Suite Marketplace', 'Website', 'Github'],
     tags : ["Google Apps Script", "Google Cloud", "Javascript", "HTML"]
@@ -25,7 +25,7 @@ const projects = [
   {
     name: "Stress Calendar",
     image: strssCal,
-    description: "A mood, stress tracking, and productivity application that records and analyzes feelings, and produces a stress based task list to help students coordinate and declutter their lives. It features a calendar page with important reminders and notifications, a to-do list with tasks sorted by stress and importance, and a diary page where users can record feelings and stress, as well as reflect on previous days.",
+    description: "A mood, stress tracking, and productivity application that records and analyzes feelings, and produces a stress based task list to help students coordinate and declutter their lives.",
     links : ['https://github.com/Doshy-Org/flutter-StressCalendar'],
     linkDescriptions : ['Github'],
     tags : ["Flutter", "Dart", "APIs"]
@@ -33,7 +33,7 @@ const projects = [
   {
     name: "Phutball",
     image: phutball,
-    description: "A modern take and mobile app implementation of the Philosopher's Football mathmatical and strategy board game. Philospher's Football is similar to GO but the goal is to jump the ball into the opposing side goal. The app Features a two player local gamemode, multple rounds, and a scoreboard.",
+    description: "A modern take and mobile app implementation of the Philosopher's Football mathmatical and strategy board game.",
     links : ['https://github.com/Doshy-Org/Phutball'],
     linkDescriptions : [ 'Github'],
     tags : ["Flutter", 'Dart']
@@ -42,13 +42,16 @@ const projects = [
 
 function Showcase() {
   return <div className='w-full flex flex-col p-10 md:px-48 space-y-10 dark:text-stone-100' id = "showcase">
-      <div className='text-5xl p-4 font-bold'>
+      <div className='text-4xl p-4 pl-0 font-bold'>
         Projects
       </div>
-      {projects.map((project, i) => {
-        return <WideCard key={i} project = {project}></WideCard>
-      }) 
-      }
+      <div className='flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0'>
+        {projects.map((project, i) => {
+          return <WideCard key={i} project = {project}></WideCard>
+        }) 
+        }
+      </div>
+      
   </div>
 }
 

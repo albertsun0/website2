@@ -46,7 +46,7 @@ function Canvas() {
         }
 
         const init = () => {
-            for(var i = 0; i< w/150; i++){
+            for(var i = 0; i< w/120; i++){
                 instantiate();
             }
         }

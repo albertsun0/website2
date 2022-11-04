@@ -6,10 +6,12 @@ function IconList() {
   return (
     <div className='flex flex-row space-x-4 fill-orange-200'>  
     <a href="https://github.com/albertsun0" target={"_blank"}> <Github className='hover:stroke-orange-400 cursor-pointer transition-all duration-1000'></Github></a>
-    <a href = "https://www.linkedin.com/in/albert-sun-415231203/" target={"_blank"}>
+    <a href = "https://www.linkedin.com/in/albertsun0" target={"_blank"}>
       <Linkedin className='hover:stroke-orange-400 cursor-pointer transition-all duration-1000'></Linkedin>
     </a>
-    <Pdf className='hover:stroke-orange-400 cursor-pointer transition-all duration-1000'></Pdf>
+    <a href = "https://drive.google.com/file/d/11InkkQWVaKzdxofM05qU6Am65RntLfuQ/view?usp=sharing" target={"_blank"}>
+      <Pdf className='hover:stroke-orange-400 cursor-pointer transition-all duration-1000'></Pdf>
+    </a> 
     </div>
   )
 }
