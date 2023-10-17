@@ -23,7 +23,7 @@ function WideCard({project}) {
         <div className='flex flex-row text-black flex-wrap'>
           {
             project.tags.map((tag, i) => {
-              return <div className={`px-2 border-2 rounded-md text-md overflow-hidden mb-2 mr-2 dark:text-white`} style = {{borderColor: colors[(tag.charCodeAt(0) - 65) % colors.length]}}>{tag}</div>
+              return <div key = {i} className={`px-2 border-2 rounded-md text-md overflow-hidden mb-2 mr-2 dark:text-white`} style = {{borderColor: colors[(tag.charCodeAt(0) - 65) % colors.length]}}>{tag}</div>
             })
           }
         </div>

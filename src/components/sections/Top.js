@@ -14,19 +14,16 @@ function Top() {
       delay: 100,
     })
     return (
-      <animated.div className='pl-10 md:mr-1/3 md:w-2/3 dark:text-stone-100 transition-all duration-700' style = {anim2}>
+      <animated.div className=' dark:text-stone-100 transition-all duration-700 lg:px-48 px-10' style = {anim2}>
         <div className = 'w-full flex flex-col space-y-10'>
           <div className='flex flex-row items-baseline'>
             <div className='text-7xl font-bold text-gray-800 dark:text-white'>
               Albert Sun
             </div>
-            <div className='w-3 h-3 ml-2 rounded-full'>
-
-            </div>
           </div>
          
           <div className='text-2xl md:w-1/2'>
-          I'm a CS student at the University of Texas at Austin who loves front end development, and is interested in software engineering, human centered computing, and game development.
+          I'm a CS student at UT Austin who loves game development, human centered computing, and frontend development.
           </div>
           <div className='flex flex-row items-center space-x-4 sm:w-full'>
             <IconList></IconList>
@@ -34,12 +31,12 @@ function Top() {
                         before:block before:absolute before:bg-gradient-to-br before:from-orange-100 
                         before:to-orange-300 before:w-full before:h-full before:top-0 before:-left-40 
                         hover:before:left-0 before:transition-all before:ease-in-out before:duration-700 before:-z-10 
-                        cursor-pointer rounded overflow-hidden'>
+                        cursor-pointer rounded overflow-hidden dark:hover:text-black transition-colors'>
               <a href='mailto:albertsun0@utexas.edu'>Contact Me</a>
             </div>
           </div>
-          <a href='#showcase' className='w-auto'>
-            <DownArrow class = "arrowAnimate"></DownArrow>
+          <a href='#showcase' className=''>
+            <DownArrow className = "arrowAnimate"></DownArrow>
           </a>
           
         </div>
