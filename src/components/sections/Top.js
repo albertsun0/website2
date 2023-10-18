@@ -35,9 +35,12 @@ function Top() {
               <a href='mailto:albertsun0@utexas.edu'>Contact Me</a>
             </div>
           </div>
-          <a href='#showcase' className=''>
-            <DownArrow className = "arrowAnimate"></DownArrow>
-          </a>
+          <div>
+             <a href='#showcase' className ="w-24">
+              <DownArrow className = "arrowAnimate"></DownArrow>
+            </a>
+          </div>
+         
           
         </div>
       </animated.div>

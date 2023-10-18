@@ -9,7 +9,7 @@ function IconList() {
     <a href = "https://www.linkedin.com/in/albertsun0" target={"_blank"}>
       <Linkedin className='hover:stroke-orange-400 cursor-pointer transition-all duration-1000'></Linkedin>
     </a>
-    <a href = "https://drive.google.com/file/d/11InkkQWVaKzdxofM05qU6Am65RntLfuQ/view?usp=sharing" target={"_blank"}>
+    <a href = "https://drive.google.com/file/d/1eH6FXebBsHN2iWyje1mqe71hZifxwATW/view?usp=sharing" target={"_blank"}>
       <Pdf className='hover:stroke-orange-400 cursor-pointer transition-all duration-1000'></Pdf>
     </a> 
     </div>
