@@ -1,27 +1,33 @@
-import React, {useState} from 'react'
-import {ReactComponent as Light} from '../../icons/sun.svg'
-import {ReactComponent as Dark} from '../../icons/moon.svg'
-
+import React, { useState, useEffect } from "react";
+import { ReactComponent as Light } from "../../icons/sun.svg";
+import { ReactComponent as Dark } from "../../icons/moon.svg";
 
 function DarkModeToggle() {
+  const [theme, toggleTheme] = useState(true);
 
-    const [theme, toggleTheme]  = useState(true)
+  const changetheme = () => {
+    toggleTheme(!theme);
+    const className = "dark";
+    const bodyClass = window.document.body.classList;
+    theme ? bodyClass.add(className) : bodyClass.remove(className);
+    console.log(theme);
+  };
 
-    const changetheme = () => {
-        toggleTheme(!theme)
-        const className = 'dark';
-        const bodyClass = window.document.body.classList;
-        theme ? bodyClass.add(className) : bodyClass.remove(className);
-        console.log(theme);
-    }
+  useEffect(() => {
+    changetheme();
+  }, []);
 
-    return (
-        <div>
-             <div onClick = {changetheme} className="cursor-pointer pr-4">
-                {theme ? <Dark className = "fill-current" /> :  <Light className = "fill-current" /> }
-            </div>
-        </div>
-    )
+  return (
+    <div>
+      <div onClick={changetheme} className="cursor-pointer pr-4">
+        {theme ? (
+          <Dark className="fill-current" />
+        ) : (
+          <Light className="fill-current" />
+        )}
+      </div>
+    </div>
+  );
 }
 
-export default DarkModeToggle
+export default DarkModeToggle;
