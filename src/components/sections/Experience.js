@@ -30,14 +30,14 @@ const experiences = [
 function Experience() {
   return (
     <div
-      className="w-full flex flex-col lg:px-60 space-y-4 dark:text-stone-100"
+      className="w-full flex flex-col lg:px-60 px-4 space-y-4 dark:text-stone-100 pb-10"
       id="experiences"
     >
-      <div className="text-2xl p-4 pl-0 font-bold">Experience</div>
-      <div className="flex flex-col space-y-4 md:space-y-0 dark:bg-zinc-800/90 p-4 border dark:border-gray-800 rounded-sm bg-white bg-opacity-80">
+      <div className="text-2xl py-4 font-bold">Experience</div>
+      <div className="flex flex-col space-y-4 md:space-y-0 dark:bg-zinc-800/90 px-4 border dark:border-gray-800 rounded-sm bg-white bg-opacity-80">
         {experiences.map((experience, i) => {
           return (
-            <div className="flex flex-row py-4 space-x-4  items-center">
+            <div className="flex flex-row p-4 space-x-4  items-center">
               <experience.icon className="w-10 h-10" />
               <div className="flex flex-col">
                 <div className="flex flex-row items-center space-x-2">

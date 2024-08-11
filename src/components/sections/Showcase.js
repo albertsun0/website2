@@ -58,10 +58,10 @@ const projects = [
 function Showcase() {
   return (
     <div
-      className="w-full flex flex-col p-10 lg:px-48 space-y-4 dark:text-stone-100"
+      className="w-full flex flex-col p-4 lg:px-60 space-y-4 dark:text-stone-100"
       id="showcase"
     >
-      <div className="text-4xl p-4 pl-0 font-bold">Projects</div>
+      <div className="text-2xl p-4 pl-0 font-bold">Projects</div>
       <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
         {projects.map((project, i) => {
           return <WideCard key={i} project={project}></WideCard>;

@@ -166,14 +166,15 @@ function Canvas() {
       draw();
     }
     window.addEventListener("resize", windowResize);
-    window.addEventListener("click", (e) => {
+    window.addEventListener("mousemove", (e) => {
       console.log("click");
       for (let i = 0; i < triangles.length; i++) {
         if (
           mousex > triangles[i].x - triangleW &&
           mousex < triangles[i].x + triangleW &&
           mousey - window.scrollY > triangles[i].y - triangleH &&
-          mousey - window.scrollY < triangles[i].y + triangleH
+          mousey - window.scrollY < triangles[i].y + triangleH &&
+          triangles[i].action === "none"
         ) {
           let a = Math.floor(Math.random() * 2);
           if (a === 0) {
@@ -186,6 +187,7 @@ function Canvas() {
         }
       }
     });
+
     window.addEventListener("mousemove", (e) => {
       mousex = e.pageX;
       mousey = e.pageY;
@@ -204,7 +206,7 @@ function Canvas() {
     <canvas
       id="bg"
       className="m-0 overflow-hidden w-full h-full -z-10 fixed 
-        dark:bg-zinc-900 bg-neutral-50 transition-all duration-700 bg-gradient-to-t dark:from-zinc-800 dark:to-zinc-950"
+      light:bg-neutral-50 dark:bg-slate-900 transition-all duration-700 dark:bg-gradient-to-t from-zinc-800 to-zinc-950"
     ></canvas>
   );
 }
