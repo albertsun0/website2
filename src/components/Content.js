@@ -16,6 +16,7 @@ function Content() {
       </div>
       <Experience></Experience>
       <Showcase></Showcase>
+      <div className="h-10"></div>
       {/*<Contact></Contact>*/}
     </div>
   );

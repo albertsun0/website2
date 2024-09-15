@@ -206,7 +206,7 @@ function Canvas() {
     <canvas
       id="bg"
       className="m-0 overflow-hidden w-full h-full -z-10 fixed 
-      light:bg-neutral-50 dark:bg-slate-900 transition-all duration-700 dark:bg-gradient-to-t from-zinc-800 to-zinc-950"
+      light:bg-neutral-50 dark:bg-slate-800 transition-all duration-700 dark:bg-gradient-to-t from-zinc-800 to-zinc-950"
     ></canvas>
   );
 }

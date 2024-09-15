@@ -4,6 +4,16 @@ import slidebg from "../../assets/slidesbg.gif";
 import strssCal from "../../assets/stresscal.gif";
 import phutball from "../../assets/phut.gif";
 import bookshelf from "../../assets/bookshelf.png";
+import {
+  SiGooglecloud,
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiMongodb,
+  SiTailwindcss,
+  SiFlutter,
+  SiDart,
+} from "react-icons/si";
 
 const projects = [
   {
@@ -21,6 +31,23 @@ const projects = [
       "Website",
       "Github",
     ],
+    skills: [
+      {
+        name: "React",
+        icon: SiReact,
+        color: "#57c4dc",
+      },
+      {
+        name: "Google Cloud",
+        icon: SiGooglecloud,
+        color: "#4185f4",
+      },
+      {
+        name: "Javascript",
+        icon: SiJavascript,
+        color: "#fcdc00",
+      },
+    ],
     tags: ["Google Apps Script", "Google Cloud", "Javascript", "HTML"],
   },
   {
@@ -33,6 +60,23 @@ const projects = [
       "https://github.com/nabil989/Bookshelf",
     ],
     linkDescriptions: ["Website", "Github"],
+    skills: [
+      {
+        name: "NextJS",
+        icon: SiNextdotjs,
+        color: "gray",
+      },
+      {
+        name: "Mongo DB",
+        icon: SiMongodb,
+        color: "#00ec64",
+      },
+      {
+        name: "TailwindCSS",
+        icon: SiTailwindcss,
+        color: "#37bcf8",
+      },
+    ],
     tags: ["Next.js", "TailwindCSS", "MongoDB", "REST API"],
   },
   {
@@ -42,6 +86,18 @@ const projects = [
       "A mood, stress tracking, and productivity application that records and analyzes feelings, and produces a stress based task list to help students coordinate and declutter their lives.",
     links: ["https://github.com/Doshy-Org/flutter-StressCalendar"],
     linkDescriptions: ["Github"],
+    skills: [
+      {
+        name: "Flutter",
+        icon: SiFlutter,
+        color: "#61b3e9",
+      },
+      {
+        name: "Dart",
+        icon: SiDart,
+        color: "#2fb6f6",
+      },
+    ],
     tags: ["Flutter", "Dart", "APIs"],
   },
   {
@@ -52,6 +108,18 @@ const projects = [
     links: ["https://github.com/Doshy-Org/Phutball"],
     linkDescriptions: ["Github"],
     tags: ["Flutter", "Dart"],
+    skills: [
+      {
+        name: "Flutter",
+        icon: SiFlutter,
+        color: "#61b3e9",
+      },
+      {
+        name: "Dart",
+        icon: SiDart,
+        color: "#2fb6f6",
+      },
+    ],
   },
 ];
 

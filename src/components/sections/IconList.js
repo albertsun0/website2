@@ -7,7 +7,7 @@ function IconList() {
     <div className="flex flex-row space-x-4 fill-orange-200">
       <a href="https://github.com/albertsun0" target={"_blank"}>
         {" "}
-        <Github className="hover:stroke-orange-400 cursor-pointer transition-all duration-1000 opacity-80"></Github>
+        <Github className="hover:stroke-orange-400 cursor-pointer transition-all duration-1000 opacity-80 w-6 h-6"></Github>
       </a>
       <a href="https://www.linkedin.com/in/albertsun0" target={"_blank"}>
         <Linkedin className="hover:stroke-orange-400 cursor-pointer transition-all duration-1000 opacity-80"></Linkedin>
