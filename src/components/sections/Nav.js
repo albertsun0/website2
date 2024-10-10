@@ -15,7 +15,7 @@ function Nav() {
         <div className="flex-grow"></div>
         <a href="#experiences">
           <div className="hover:text-orange-400 cursor-pointer transition-all duration-500">
-            Experiences
+            Experience
           </div>
         </a>
         <a href="#showcase">

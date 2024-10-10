@@ -9,6 +9,8 @@ import {
   SiNextdotjs,
   SiTypescript,
   SiFastapi,
+  SiPython,
+  SiAwslambda,
 } from "react-icons/si";
 import { GrGraphQl } from "react-icons/gr";
 import { BsDot } from "react-icons/bs";
@@ -48,6 +50,7 @@ const experiences = [
     dates: "Jun 2024 - Aug 2024",
     location: "Dallas",
     skills: [
+      { name: "Python", icon: SiPython, color: "#ffdc69" },
       {
         name: "Spark",
         icon: SiApachespark,
@@ -57,6 +60,11 @@ const experiences = [
         name: "Snowflake",
         icon: SiSnowflake,
         color: "#259edc",
+      },
+      {
+        name: "AWS",
+        icon: SiAwslambda,
+        color: "#ff9900",
       },
     ],
   },
@@ -86,7 +94,7 @@ function Experience() {
   return (
     <div
       className="w-full flex flex-col lg:px-60 px-4 space-y-4 dark:text-stone-100 pb-10"
-      id="experiences"
+      id="experience"
     >
       <div className="text-2xl py-4 font-bold">Experience</div>
       <div className="flex flex-col space-y-4 md:space-y-0 dark:bg-zinc-800/90 px-4 border dark:border-gray-800 rounded-sm bg-white bg-opacity-80">
@@ -99,9 +107,6 @@ function Experience() {
                   <div className=" flex flex-row space-x-2 grow items-center rounded-md">
                     <div className="text-md font-semibold">
                       {experience.company}
-                    </div>
-                    <div className="bg-orange-300 dark:bg-orange-800 text-xs px-2 py-0 rounded-md">
-                      {experience.location}
                     </div>
                   </div>
                   <div className="opacity-80 text-sm">{experience.dates}</div>
