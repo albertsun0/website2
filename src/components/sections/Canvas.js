@@ -97,7 +97,7 @@ function Canvas() {
         }
         if (triangles[i].action === "zoom") {
           if (triangles[i].speed > triangleSpeed) {
-            triangles[i].speed -= 0.01;
+            triangles[i].speed -= 0.3;
           } else {
             triangles[i].speed = triangleSpeed;
             triangles[i].action = "none";
@@ -181,7 +181,7 @@ function Canvas() {
             triangles[i].action = "shrink";
           }
           if (a === 1) {
-            triangles[i].speed = 1.5;
+            triangles[i].speed = 10;
             triangles[i].action = "zoom";
           }
         }

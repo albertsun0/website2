@@ -4,6 +4,7 @@ import Top from "./sections/Top";
 import Showcase from "./sections/Showcase";
 import Canvas from "./sections/Canvas";
 import Experience from "./sections/Experience";
+import Footer from "./Footer";
 function Content() {
   return (
     <div className="w-full flex flex-col selection:bg-orange-400">
@@ -17,6 +18,7 @@ function Content() {
       <Experience></Experience>
       <Showcase></Showcase>
       <div className="h-10"></div>
+      <Footer></Footer>
       {/*<Contact></Contact>*/}
     </div>
   );

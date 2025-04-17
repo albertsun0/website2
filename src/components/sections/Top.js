@@ -32,7 +32,7 @@ function Top() {
           I'm a computer science student at{" "}
           <span className="font-bold">UT Austin</span> who is interested in{" "}
           <span className="font-bold">data engineering</span>, human centered
-          computing, and <span className="font-bold">LLMs</span>.
+          computing, and <span className="font-bold">physical simulation</span>.
         </div>
         <div className="flex flex-row items-center space-x-4 sm:w-full">
           <IconList></IconList>
